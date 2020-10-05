@@ -26,7 +26,9 @@
             <div class="container">
                 <h1 class="display-3 text-light">Failed!</h1>
                 <p>Unfortunately, there was some problem while signing up. Please try signing up again.</p>
-                <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+                <form action="/failure" method="POST">
+                    <button type="submit" class="btn btn-light btn-lg" role="button">Try again &raquo;</button>
+                </form>
             </div>
         </div>
 

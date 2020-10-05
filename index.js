@@ -15,11 +15,6 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
 });
 
-// Error page
-app.get('/failure', (req,res) => {
-    res.sendFile(__dirname + "/public/failure.html");
-});
-
 app.post('/', (req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
@@ -58,8 +53,14 @@ app.post('/', (req, res) => {
 
     request.write(JSON.stringify(data));
     request.end();
-})
+});
 
-app.listen(port || process.env.port, () => {
+
+// Redirect from failure page
+app.post('/failure', (req,res) => {
+    res.redirect("/");
+});
+
+app.listen(process.env.PORT || port, () => {
     console.log('Server has started at port ', port);
 });
